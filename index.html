@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NSI — Numérique & Sciences Informatiques</title>
+  <meta name="description" content="Découvre la spécialité NSI : programme, projets, compétences et débouchés. Une page claire, moderne et responsive pour présenter la NSI au lycée." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;            /* slate-900 */
+      --bg-soft:#111827cc;     /* soft overlay */
+      --panel:#111827;         /* gray-900 */
+      --text:#e5e7eb;          /* gray-200 */
+      --muted:#94a3b8;         /* slate-400 */
+      --brand:#7c3aed;         /* violet-600 */
+      --brand-2:#06b6d4;       /* cyan-500 */
+      --ok:#10b981;            /* emerald-500 */
+      --warn:#f59e0b;          /* amber-500 */
+      --shadow: 0 10px 30px rgba(2,6,23,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.25), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(6,182,212,.20), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;gap:.6rem;align-items:center;padding:.9rem 1.15rem;border-radius:999px;font-weight:600;border:1px solid transparent;transition:.2s;backdrop-filter: blur(6px)}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2)); box-shadow: var(--shadow)}
+    .btn-primary:hover{transform: translateY(-2px)}
+    .btn-ghost{background:transparent;border-color:#334155;color:#e2e8f0}
+    .btn-ghost:hover{border-color:#475569; transform: translateY(-2px)}
+    header.nav{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(8px);
+      background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.2px}
+    .logo{width:36px;height:36px;border-radius:10px; background: radial-gradient(120% 120% at 20% 20%, #a78bfa, #06b6d4 60%, #0ea5e9 100%); box-shadow: var(--shadow)}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    nav a{padding:.6rem .8rem;border-radius:999px;color:#cbd5e1}
+    nav a:hover{background:#1f2937; color:#fff}
+    .hero{position:relative;padding:90px 0 80px}
+    .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr; gap:36px}
+    .title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.1;margin:0 0 16px}
+    .subtitle{font-size:clamp(1rem,1.7vw,1.125rem);color:var(--muted);max-width:65ch}
+    .badges{display:flex;flex-wrap:wrap;gap:.6rem;margin:20px 0 26px}
+    .badge{padding:.45rem .7rem;border:1px solid #334155;border-radius:999px;font-size:.9rem;color:#cbd5e1;display:inline-flex;gap:.5rem;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(148,163,184,.08), rgba(30,41,59,.35)); border:1px solid rgba(148,163,184,.15); border-radius: var(--radius); box-shadow: var(--shadow)}
+    .panel{padding:22px}
+    .grid{display:grid; gap:20px}
+    .grid-3{grid-template-columns: repeat(3, 1fr)}
+    .grid-2{grid-template-columns: repeat(2, 1fr)}
+    .section{padding:64px 0}
+    .section h2{font-size:clamp(1.5rem,3vw,2.2rem); margin:0 0 14px}
+    .muted{color:var(--muted)}
+    .feature{display:flex; gap:14px}
+    .feature .icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#1f2937;border:1px solid #334155}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .kpi{padding:16px;text-align:center}
+    .kpi h3{margin:0;font-size:1.6rem}
+    .kpi p{margin:6px 0 0;color:var(--muted)}
+    .timeline{position:relative;padding-left:18px}
+    .timeline:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:#334155;border-radius:4px}
+    .t-item{position:relative;margin:14px 0 0}
+    .t-item:before{content:"";position:absolute;left:-2px;top:6px;width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 4px rgba(124,58,237,.15)}
+    .footer{padding:28px 0 58px; color:#9ca3af; font-size:.95rem}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><div class="logo" aria-hidden="true"></div> NSI • Lycée</div>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="#programme">Programme</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#debouches">Débouchés</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="title">NSI — Numérique & Sciences Informatiques</h1>
+        <p class="subtitle">Découvre une spécialité tournée vers la <strong>programmation</strong>, la <strong>résolution de problèmes</strong> et l'<strong>innovation</strong>. Ici, on construit, on teste, on comprend comment fonctionnent les technologies qui nous entourent.</p>
+        <div class="badges">
+          <span class="badge">💻 Python, SQL, Web</span>
+          <span class="badge">🧠 Algorithmique</span>
+          <span class="badge">🗂️ Structures de données</span>
+          <span class="badge">🌐 Réseaux & Web</span>
+          <span class="badge">🔒 Données & Sécurité</span>
+        </div>
+        <div style="display:flex; gap:.7rem; flex-wrap:wrap">
+          <a href="#projets" class="btn btn-primary">Voir des projets</a>
+          <a href="#programme" class="btn btn-ghost">Découvrir le programme</a>
+        </div>
+      </div>
+      <div>
+        <div class="card panel" role="img" aria-label="Illustration thématique NSI">
+          <svg viewBox="0 0 800 500" width="100%" height="100%" style="display:block">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="800" height="500" rx="16" fill="url(#g1)" opacity=".08"/>
+            <g transform="translate(60,50)">
+              <rect x="0" y="0" width="320" height="210" rx="14" fill="#0b1220" stroke="#2b394b"/>
+              <rect x="16" y="16" width="288" height="26" rx="8" fill="#111827"/>
+              <circle cx="32" cy="29" r="6" fill="#ef4444"/>
+              <circle cx="52" cy="29" r="6" fill="#f59e0b"/>
+              <circle cx="72" cy="29" r="6" fill="#10b981"/>
+              <rect x="16" y="56" width="140" height="14" rx="6" fill="#1f2937"/>
+              <rect x="16" y="78" width="180" height="14" rx="6" fill="#1f2937"/>
+              <rect x="16" y="120" width="260" height="60" rx="10" fill="#0d1726" stroke="#2b394b"/>
+              <text x="26" y="152" fill="#9ca3af" font-family="monospace" font-size="14">for (item in data): print(item)</text>
+            </g>
+            <g transform="translate(420,70)">
+              <rect x="0" y="0" width="320" height="140" rx="14" fill="#0b1220" stroke="#2b394b"/>
+              <rect x="16" y="16" width="288" height="18" rx="6" fill="#111827"/>
+              <rect x="16" y="48" width="120" height="70" rx="10" fill="#0d1726" stroke="#2b394b"/>
+              <rect x="146" y="48" width="158" height="70" rx="10" fill="#0d1726" stroke="#2b394b"/>
+            </g>
+            <g transform="translate(420,240)">
+              <rect x="0" y="0" width="320" height="160" rx="14" fill="#0b1220" stroke="#2b394b"/>
+              <rect x="16" y="16" width="288" height="18" rx="6" fill="#111827"/>
+              <rect x="16" y="50" width="288" height="90" rx="10" fill="#0d1726" stroke="#2b394b"/>
+              <text x="26" y="100" fill="#9ca3af" font-family="monospace" font-size="14">SELECT * FROM eleves WHERE nsi=TRUE;</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programme" class="section">
+    <div class="container">
+      <h2>Programme <span class="muted">(Première & Terminale)</span></h2>
+      <p class="muted">Une progression équilibrée entre concepts fondamentaux, pratique du code et culture informatique.</p>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card panel feature">
+          <div class="icon">🔣</div>
+          <div>
+            <h3>Algorithmique</h3>
+            <p class="muted">Raisonnement, récursivité, complexité, graphes. Savoir concevoir des solutions efficaces.</p>
+          </div>
+        </div>
+        <div class="card panel feature">
+          <div class="icon">🧱</div>
+          <div>
+            <h3>Structures de données</h3>
+            <p class="muted">Listes, piles, files, tables de hachage, arbres. Choisir la bonne structure pour le bon problème.</p>
+          </div>
+        </div>
+        <div class="card panel feature">
+          <div class="icon">🌐</div>
+          <div>
+            <h3>Réseaux & Web</h3>
+            <p class="muted">Modèle Internet, HTTP, DNS, HTML/CSS/JS, APIs. Publier et interconnecter des services.</p>
+          </div>
+        </div>
+        <div class="card panel feature">
+          <div class="icon">🗄️</div>
+          <div>
+            <h3>Données & Bases</h3>
+            <p class="muted">Modélisation, SQL, requêtes, intégrité. Manipuler et valoriser l'information.</p>
+          </div>
+        </div>
+        <div class="card panel feature">
+          <div class="icon">🧪</div>
+          <div>
+            <h3>Programmation Python</h3>
+            <p class="muted">Pratiques modernes : tests, débogage, POO légère, lecture d'API et librairies.</p>
+          </div>
+        </div>
+        <div class="card panel feature">
+          <div class="icon">🔒</div>
+          <div>
+            <h3>Cybersécurité</h3>
+            <p class="muted">Principes, chiffrement, sensibilisation, éthique numérique et RGPD.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpis" style="margin-top:18px">
+        <div class="card kpi"><h3>70%+</h3><p>de pratique concrète</p></div>
+        <div class="card kpi"><h3>100%</h3><p>projets en équipe</p></div>
+        <div class="card kpi"><h3>2 années</h3><p>de montée en compétences</p></div>
+        <div class="card kpi"><h3>∞</h3><p>curiosité & créativité</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" class="section">
+    <div class="container">
+      <h2>Projets <span class="muted">réalisés en NSI</span></h2>
+      <div class="grid grid-3" style="margin-top:18px">
+        <article class="card panel">
+          <h3>Jeu de stratégie en Python</h3>
+          <p class="muted">Conception d'un petit moteur de jeu (grille, pathfinding, IA simple) avec interface Pygame.</p>
+          <div style="display:flex; gap:.5rem; margin-top:12px">
+            <span class="badge">Python</span>
+            <span class="badge">Algorithmes</span>
+            <span class="badge">Pygame</span>
+          </div>
+        </article>
+        <article class="card panel">
+          <h3>Dashboard Web de données</h3>
+          <p class="muted">Site web qui interroge une API et visualise des indicateurs (HTML/CSS/JS + Chart.js).</p>
+          <div style="display:flex; gap:.5rem; margin-top:12px">
+            <span class="badge">Web</span>
+            <span class="badge">API</span>
+            <span class="badge">Data viz</span>
+          </div>
+        </article>
+        <article class="card panel">
+          <h3>Explorateur de graphes</h3>
+          <p class="muted">Parcours en largeur/profondeur, plus court chemin, visualisation interactive.</p>
+          <div style="display:flex; gap:.5rem; margin-top:12px">
+            <span class="badge">Graphes</span>
+            <span class="badge">Visualisation</span>
+            <span class="badge">JS</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences" class="section">
+    <div class="container">
+      <h2>Compétences développées</h2>
+      <div class="grid grid-2" style="margin-top:6px">
+        <div class="card panel">
+          <h3>Techniques</h3>
+          <ul class="muted">
+            <li>Analyser un problème et formaliser un algorithme</li>
+            <li>Coder proprement, commenter, tester et versionner</li>
+            <li>Structurer des données et choisir les bons modèles</li>
+            <li>Interroger et transformer des données (SQL, CSV, JSON)</li>
+            <li>Publier un site statique et consommer des APIs</li>
+          </ul>
+        </div>
+        <div class="card panel">
+          <h3>Transversales</h3>
+          <ul class="muted">
+            <li>Travailler en équipe avec des outils modernes</li>
+            <li>Présenter et documenter un projet technique</li>
+            <li>Apprendre à apprendre (veille, lecture de docs)</li>
+            <li>Esprit critique et éthique numérique</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card panel" style="margin-top:18px">
+        <h3>Parcours de l'élève</h3>
+        <div class="timeline muted">
+          <div class="t-item">
+            <strong>Trimestre 1 — Première :</strong> bases de Python, algorithmes, premiers projets guidés.
+          </div>
+          <div class="t-item">
+            <strong>Trimestre 2 :</strong> structures de données, web, bases de données, mini-projet.
+          </div>
+          <div class="t-item">
+            <strong>Trimestre 3 :</strong> réseaux, sécurité, projet d'équipe présenté à la classe.
+          </div>
+          <div class="t-item">
+            <strong>Terminale :</strong> consolidation, projet long, préparation post-bac & Grand Oral.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="debouches" class="section">
+    <div class="container">
+      <h2>Et après la NSI ? <span class="muted">Débouchés</span></h2>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card panel">
+          <h3>Études</h3>
+          <p class="muted">BUT informatique, licences, prépas (MP/NSI), écoles d'ingénieurs, écoles spécialisées.</p>
+        </div>
+        <div class="card panel">
+          <h3>Métiers</h3>
+          <p class="muted">Développeur·se, data, cybersécurité, admin systèmes, ingénierie logicielle, UX technique.</p>
+        </div>
+        <div class="card panel">
+          <h3>Compétences utiles partout</h3>
+          <p class="muted">Automatiser, analyser, communiquer : des atouts recherchés dans de nombreux domaines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="grid grid-2" style="margin-top:18px">
+        <details class="card panel">
+          <summary><strong>Faut-il déjà savoir programmer ?</strong></summary>
+          <p class="muted">Non. La spécialité est progressive. La curiosité et la régularité comptent davantage.</p>
+        </details>
+        <details class="card panel">
+          <summary><strong>Quel matériel est nécessaire ?</strong></summary>
+          <p class="muted">Un ordinateur (Windows, macOS ou Linux). Les logiciels utilisés sont gratuits et open-source.</p>
+        </details>
+        <details class="card panel">
+          <summary><strong>Y a-t-il beaucoup de maths ?</strong></summary>
+          <p class="muted">On mobilise de la logique et un peu de probabilités, mais l'accent est mis sur la pratique.</p>
+        </details>
+        <details class="card panel">
+          <summary><strong>Peut-on combiner NSI avec SI/SVT ?</strong></summary>
+          <p class="muted">Oui. Beaucoup d'élèves associent NSI à Maths + une autre spécialité selon leur projet.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+      <p>© <span id="year"></span> NSI — Page vitrine éducative. Réalisé avec ♥</p>
+      <div style="display:flex; gap:.5rem; align-items:center">
+        <button class="btn btn-ghost" onclick="toggleTheme()" title="Basculer le thème">🌓 Thème</button>
+        <a href="#" class="btn btn-ghost" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲ Haut de page</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Inputs */
+    .input{width:100%;margin-top:6px;padding:.8rem 1rem;border-radius:12px;background:#0b1220;border:1px solid #334155;color:#e2e8f0}
+    .input:focus{outline:none;border-color:#475569; box-shadow:0 0 0 4px rgba(124,58,237,.15)}
+  </style>
+
+  <script>
+    // Année dynamique
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mini système de notifications
+    function toast(text){
+      const t=document.createElement('div');
+      t.textContent=text; t.setAttribute('role','status');
+      t.style.cssText='position:fixed;inset:auto 0 24px 0;margin:auto;max-width:520px;padding:14px 16px;border-radius:14px;background:#111827;color:#e5e7eb;border:1px solid #334155;box-shadow:var(--shadow);text-align:center;z-index:60';
+      document.body.appendChild(t); setTimeout(()=>t.remove(),2500);
+    }
+
+    // Thème clair/sombre (simple inversion)
+    let dark=true;
+    function toggleTheme(){
+      dark=!dark;
+      document.body.style.background = dark
+        ? 'radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.25), transparent 60%),\
+           radial-gradient(900px 500px at 90% 10%, rgba(6,182,212,.20), transparent 60%),\
+           var(--bg)'
+        : '#f8fafc';
+      const text = document.querySelectorAll('body, .muted, .card, .btn-ghost, .kpi p');
+      document.body.style.color = dark? 'var(--text)' : '#0b1220';
+      document.querySelectorAll('.card').forEach(el=>{
+        el.style.background = dark? 'linear-gradient(180deg, rgba(148,163,184,.08), rgba(30,41,59,.35))' : '#ffffff';
+        el.style.borderColor = dark? 'rgba(148,163,184,.15)' : '#e2e8f0';
+      });
+      document.querySelectorAll('.btn-ghost').forEach(el=>{
+        el.style.borderColor = dark? '#334155' : '#cbd5e1';
+        el.style.color = dark? '#e2e8f0' : '#0b1220';
+      });
+      document.querySelectorAll('.input').forEach(el=>{
+        el.style.background = dark? '#0b1220' : '#ffffff';
+        el.style.borderColor = dark? '#334155' : '#cbd5e1';
+        el.style.color = dark? '#0b1220' : '#0b1220';
+      });
+    }
+  </script>
+</body>
+</html>
