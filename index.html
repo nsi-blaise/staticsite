@@ -74,7 +74,14 @@
     .t-item:before{content:"";position:absolute;left:-2px;top:6px;width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 4px rgba(124,58,237,.15)}
     .footer{padding:28px 0 58px; color:#9ca3af; font-size:.95rem}
 
+    .nav-toggle { display: none; }
     @media (max-width: 768px){
+  .nav-toggle { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+}
   /* Navigation : menu burger */
   nav ul {
     display: none;               /* caché par défaut */
